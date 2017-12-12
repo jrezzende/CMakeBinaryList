@@ -6,6 +6,7 @@
 
 class User
 {
+public:
    int _GetValue();
    int _GetIndex();
 

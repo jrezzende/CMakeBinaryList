@@ -77,7 +77,7 @@ public:
 
    void disableAllNodes();// ok
    void disableNode(int pos); // ok
-   void purge(); // ok
+   int purge(); // ok
 
    void serializeSize();// ok
    void serializeHeader();// ok

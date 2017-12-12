@@ -390,8 +390,9 @@ void List::disableNode(int pos)
    serializeHeader();
 }
 
-void List::purge()
+int List::purge()
 {
+   int count= 0;
    List* temp= new List("temp.bin");
    fileStatus();
    temp->fileStatus();
@@ -401,6 +402,7 @@ void List::purge()
    for (int i = 0; i < listSize; i++) {
       temp->appendNode(tempNode->value);
       tempNode= seekNode(tempNode->next);
+      count++;
    }
 
    temp->serializeHeader();
@@ -414,6 +416,7 @@ void List::purge()
    delete temp;
    fileStatus();
 
+   return listSize - count;
 }
 
 void List::serializeSize()
