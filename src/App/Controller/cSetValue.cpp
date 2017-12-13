@@ -14,4 +14,6 @@ void cSetValue::exec(Model& m, User& u)
    }
 
    flag ? m.getCurrentList().setNodeValue(index, value) : u._FailIndex(); return;
+
+   return;
 }

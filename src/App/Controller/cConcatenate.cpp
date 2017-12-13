@@ -15,4 +15,6 @@ void cConcatenate::exec(Model& m, User& u)
       m.getCurrentList().concatenateList(m.getSecondList());
    
    flag ? u._Final(true) : u._Final(false);
+
+   return;
 }

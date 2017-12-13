@@ -30,12 +30,11 @@ void Model::createBothLists()
    areInitialized= true;
 }
 
-string Model::displayLists()
+std::string Model::displayLists()
 {
    ostringstream buf;
 
-   buf << "In position 1, the list name is: firstList.bin" << endl;
-   buf << "In position 2, the list name is: secondList.bin" << endl;
+   buf << "In position 1, the list name is: firstList.bin. \n In position 2, the list name is: secondList.bin.\n";
 
    return buf.str();
 }
@@ -53,15 +52,16 @@ bool Model::concatenateLists(int pos)
    return true;
 }
 
-void Model::deleteList()
+void Model::deleteLists()
 {
-   currentList->disableAllNodes();
-   currentList->purge();
+   firstList->disableAllNodes();
+   firstList->purge();
 
-   if (currentList == firstList)
-      remove("firstList.bin");
-   else if (currentList == secondList)
-      remove("secondList.bin");
+   secondList->disableAllNodes();
+   secondList->purge();
+
+   remove("firstList.bin");
+   remove("secondList.bin");
 
    return;
 }
@@ -82,9 +82,9 @@ bool Model::fileExists()
    return flag;
 }
 
-void Model::setCurrentList(ListOption lo)
+void Model::setCurrentList(int num)
 {
-   if (lo == List1) {
+   if (num == 1) {
       currentList= firstList;
       return;
    }

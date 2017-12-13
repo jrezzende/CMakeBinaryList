@@ -7,4 +7,6 @@ void cDisable::exec(Model& m, User& u)
    
    m.getCurrentList().disableNode(index);
    u._Success();
+
+   return;
 }

@@ -31,6 +31,23 @@ int User::_GetIndex()
    return index;
 }
 
+int User::_GetListNumber()
+{
+   system("cls");
+   
+   cout << "--------------------------- \n";
+   cout << "Insert the list number (must be 1 or 2).\n";
+
+   int num;
+   cin >> num;
+
+   if (num != 1 && num != 2) {
+      User::_GetListNumber();
+   }
+
+   return num;
+}
+
 /////////////////////
 
 void User::_Success()

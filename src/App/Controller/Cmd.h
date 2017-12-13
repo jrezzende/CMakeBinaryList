@@ -5,6 +5,7 @@
 #include "Model.h"
 #include "View.h"
 #include "User.h"
+#include "List.h"
 
 class Cmd
 {
@@ -13,4 +14,4 @@ public:
    virtual void exec(Model& m, User& u) = 0;
 };
 
-#endif // INCLUDED_CMD_H
+#endif // INCLUDED_CMD_H //

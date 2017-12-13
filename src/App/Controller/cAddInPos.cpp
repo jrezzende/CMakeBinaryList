@@ -7,4 +7,6 @@ void cAddInPos::exec(Model& m, User &u)
    
    m.getCurrentList().addInPos(value, index);
    u._Success();
+
+   return;
 }

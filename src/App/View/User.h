@@ -9,6 +9,7 @@ class User
 public:
    int _GetValue();
    int _GetIndex();
+   int _GetListNumber();
 
    void _Success();
    void _Fail();

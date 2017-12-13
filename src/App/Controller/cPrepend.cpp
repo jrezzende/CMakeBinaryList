@@ -6,4 +6,6 @@ void cPrepend::exec(Model& m, User& u)
 
    m.getCurrentList().prependNode(value);
    u._Success();
+
+   return;
 }

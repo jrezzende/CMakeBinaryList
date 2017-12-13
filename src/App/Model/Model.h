@@ -2,6 +2,8 @@
 #ifndef INCLUDED_MODEL_H
 #define INCLUDED_MODEL_H
 
+#include <string>
+
 class List;
 
 class Model
@@ -13,20 +15,18 @@ private:
    bool areInitialized= false;
 
 public:
-   enum ListOption { List1, List2 };
-
    ~Model();
    Model() { firstList= secondList= nullptr; currentList= firstList; }
 
    bool areCreated() { return areInitialized; }
    void switchState() { if (areInitialized) areInitialized= false; else areInitialized= true; }
    void createBothLists();
-   string displayLists();
+   std::string displayLists();
    bool concatenateLists(int pos);
-   void deleteList();
+   void deleteLists();
    bool fileExists();
    
-   void setCurrentList(ListOption lo);
+   void setCurrentList(int num);
    
    List& getFirstList() { return *firstList; };
    List& getSecondList() { return *secondList;  };

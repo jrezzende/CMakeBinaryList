@@ -9,4 +9,4 @@ class cSeek : public Cmd
    void exec(Model& m, User& u);
 };
 
-#endif //INCLUDED_CSEEK_H
+#endif //INCLUDED_CSEEK_H //

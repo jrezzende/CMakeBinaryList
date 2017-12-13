@@ -6,4 +6,6 @@ void cAppend::exec(Model& m, User& u)
 
    m.getCurrentList().appendNode(value);
    u._Success();
+
+   return;
 }
