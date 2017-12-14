@@ -43,7 +43,7 @@ public:
    }
    void start();
    void firstCommand();
-   void secondCommand();
+   void secondCommand(string fileName);
    void runCommand();
    //void setLists(); (?)
 };

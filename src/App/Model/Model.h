@@ -2,6 +2,7 @@
 #ifndef INCLUDED_MODEL_H
 #define INCLUDED_MODEL_H
 
+#include <Windows.h>
 #include <string>
 
 class List;
@@ -16,10 +17,7 @@ private:
 
 public:
    ~Model();
-   Model() { firstList= secondList= nullptr; currentList= firstList; }
-
-   bool areCreated() { return areInitialized; }
-   void switchState() { if (areInitialized) areInitialized= false; else areInitialized= true; }
+   Model() { firstList= secondList= currentList= nullptr;  }
    void createBothLists();
    std::string displayLists();
    bool concatenateLists(int pos);

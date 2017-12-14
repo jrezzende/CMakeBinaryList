@@ -1,8 +1,15 @@
 #include "cSetCurrentList.h"
 
+static int list=0;
+
 void cSetCurrentList::exec(Model& m, User& u)
 {
-   int list= u._GetListNumber();
+   if (m.fileExists()) {
+      list= u._GetListNumber();
+      m.setCurrentList(list);
+   }
+   else
+      u._Fail();
 
-   m.setCurrentList(list);
+   return;
 }

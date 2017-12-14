@@ -28,12 +28,13 @@ int View::getFirstOption()
    return option;
 }
 
-int View::getSecondOption()
+int View::getSecondOption(string fileName)
 {
    int option;
+   string fName= fileName;
 
    cout << "/////////////////////////////////////////////////////////////////\n";
-   cout << setw(43) << "Menu -> List Manager -> " << currentName << endl;
+   cout << setw(43) << "Menu -> List Manager -> " << fName << endl;
    cout << "/////////////////////////////////////////////////////////////////\n";
    cout << "            " << "Option 1: Prepend a node (attach to first position)" << endl;
    cout << "            " << "Option 2: Append a node (attach to last position)" << endl;

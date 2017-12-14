@@ -3,7 +3,12 @@
 void cDisplayLists::exec(Model& m, User& u)
 {
    system("cls");
-   u._PrintList(m.displayLists());
 
-   return;
+   if (m.fileExists())
+      u._PrintList(m.displayLists());
+   else {
+      u._Fail();
+      return;
+   }
+
 }

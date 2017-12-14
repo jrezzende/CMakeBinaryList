@@ -4,38 +4,43 @@ void App::start()
 {
    firstCommand();
 }
-
 void App::firstCommand()
 {
    int op;
 
    do {
       op= View::getFirstOption();
-      switch (op) 
+      switch (op)
       {
-      case 1: cmd= new cCreateBothLists();
-      case 2: cmd= new cDisplay();
-      case 3: cmd= new cConcatenate();
-      case 4: cmd= new cDeleteLists();
-      case 5: 
+      case 1: cmd= new cCreateBothLists(); break;
+      case 2: cmd= new cDisplayLists(); break;
+      case 3: cmd= new cConcatenate(); break;
+      case 4: cmd= new cDeleteLists(); break;
+      case 5:
       {
          system("cls");
          cmd= new cSetCurrentList();
-         secondCommand();
+         
+         string fName = m->getCurrentList().getListName();
+
+         cmd->exec(*m, *u);
+         secondCommand(fName);
          break;
       }
       case 0: exit(0);
       default: system("cls"); u->_InvalidOp(); break;
       }
+      cmd->exec(*m, *u);
+
    } while (op != NULL);
 }
 
-void App::secondCommand()
+void App::secondCommand(string fName)
 {
    int op;
-
+   string fileName= fName;
    do {
-      op= View::getSecondOption();
+      op= View::getSecondOption(fName);
       switch (op) 
       {
       case 1: cmd= new cPrepend();

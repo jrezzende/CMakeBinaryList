@@ -8,7 +8,7 @@
 namespace View 
 {
    int getFirstOption();
-   int getSecondOption();
+   int getSecondOption(std::string fileName);
    int getList();
 }
 

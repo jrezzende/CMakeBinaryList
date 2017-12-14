@@ -17,24 +17,26 @@ void Model::createBothLists()
       firstList->disableAllNodes();
       firstList->purge();
    }
-   else
-      firstList= new List("firstList.bin");
+   else {
+      firstList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
+      firstList->setListName("First List");
+   }
 
    if (secondList) {
       secondList->disableAllNodes();
       secondList->purge();
    }
-   else
-      secondList= new List("secondList.bin");
-
-   areInitialized= true;
+   else {
+      secondList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
+      secondList->setListName("Second List");
+   }
 }
 
 std::string Model::displayLists()
 {
    ostringstream buf;
 
-   buf << "In position 1, the list name is: firstList.bin. \n In position 2, the list name is: secondList.bin.\n";
+   buf << "In position 1, the list name is: firstList.bin.\nIn position 2, the list name is: secondList.bin.";
 
    return buf.str();
 }
@@ -60,26 +62,21 @@ void Model::deleteLists()
    secondList->disableAllNodes();
    secondList->purge();
 
-   remove("firstList.bin");
-   remove("secondList.bin");
+   firstList->closeFile();
+   secondList->closeFile();
+   
+   remove("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
+   remove("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
 
    return;
 }
 
 bool Model::fileExists()
 {
-   bool flag= false;
-
-   ifstream firstFile("firstList.bin");
-   ifstream secondFile("secondList.bin");
-
-   if (firstFile && secondFile)
-      flag= true;
-
-   firstFile.close();
-   secondFile.close();
-
-   return flag;
+   ifstream infile("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
+   ifstream infile2("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
+  
+   return infile.good() && infile2.good();
 }
 
 void Model::setCurrentList(int num)

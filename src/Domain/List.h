@@ -39,6 +39,7 @@ private:
    int listSize;
    fstream fs;
    const char* fileName;
+   string listName;
 
 public:
    List(const char* fName) { 
@@ -51,38 +52,40 @@ public:
 
    /////////////////
 
-   void newFile();// ok
-   bool openFile();// ok
-   bool isEmpty();// ok
-   void fileStatus();// ok
-   void clearFile();// ok
-   void closeFile(); // ok
+   void newFile();
+   bool openFile();
+   bool isEmpty();
+   void fileStatus();
+   void clearFile();
+   void closeFile();
+   void setListName(string lName) { listName= lName; }
 
-   int getListSize() { return listSize; } // ok
-   int getFirstNode() { return firstNode; }// ok
-   int getLastNode() { return lastNode; }// ok
-   string getFileName() { return fileName; }// ok
+   int getListSize() { return listSize; }
+   int getFirstNode() { return firstNode; }
+   int getLastNode() { return lastNode; }
+   string getFileName() { return fileName; }
+   string getListName() { return listName; }
    
-   string displayAsc();// ok
-   string displayDesc();// ok
+   string displayAsc();
+   string displayDesc();
 
-   void concatenateList(List&);// ok
-   void sortList();// ok
+   void concatenateList(List&);
+   void sortList();
 
-   void appendNode(int value);// ok
-   void prependNode(int value);// ok
-   void addInPos(int value, int pos);// ok
-   Node* seekNode(int index);// ok 
-   void setNodeValue(int pos, int value); // ok
+   void appendNode(int value);
+   void prependNode(int value);
+   void addInPos(int value, int pos);
+   Node* seekNode(int index);
+   void setNodeValue(int pos, int value);
 
-   void disableAllNodes();// ok
-   void disableNode(int pos); // ok
-   int purge(); // ok
+   void disableAllNodes();
+   void disableNode(int pos);
+   int purge();
 
-   void serializeSize();// ok
-   void serializeHeader();// ok
-   void serializeNode(Node&);// ok
-   void serializeSetValue(Node&);// ok
+   void serializeSize();
+   void serializeHeader();
+   void serializeNode(Node&);
+   void serializeSetValue(Node&);
 };
 
 #endif // !INCLUDED_LIST_H
