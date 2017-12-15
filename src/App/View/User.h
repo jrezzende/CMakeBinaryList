@@ -23,7 +23,7 @@ public:
    bool _Danger();
    void _Cancel();
   
-   void _Purge(int count);
+   void _Purge();
    void _PrintList(std::string);
 };
 

@@ -80,7 +80,7 @@ public:
 
    void disableAllNodes();
    void disableNode(int pos);
-   int purge();
+   void purge();
 
    void serializeSize();
    void serializeHeader();

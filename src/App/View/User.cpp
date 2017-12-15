@@ -122,10 +122,10 @@ void User::_Cancel()
    cout << "Operation canceled.\n";
 }
 
-void User::_Purge(int purgeCount)
+void User::_Purge()
 {
    system("cls");
-   cout << "Operation successful. \" " << purgeCount << "\" nodes were erased from the file.\n";
+   cout << "Operation successful, nodes were erased from the file.\n";
 }
 
 //////////////////////////////////
