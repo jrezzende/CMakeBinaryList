@@ -385,7 +385,7 @@ void List::disableNode(int pos)
    if (flag)
       firstNode= lastNode= -1;
 
-   listSize--;
+   /*listSize--;*/
    serializeSize();
    serializeHeader();
 }

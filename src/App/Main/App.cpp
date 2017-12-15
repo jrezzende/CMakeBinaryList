@@ -2,64 +2,62 @@
 
 void App::start()
 {
-   firstCommand();
-}
-void App::firstCommand()
-{
-   int op;
-
+   int op= firstCommand();
    do {
-      op= View::getFirstOption();
-      switch (op)
-      {
-      case 1: cmd= new cCreateBothLists(); break;
-      case 2: cmd= new cDisplayLists(); break;
-      case 3: cmd= new cConcatenate(); break;
-      case 4: cmd= new cDeleteLists(); break;
-      case 5:
-      {
-         system("cls");
-         cmd= new cSetCurrentList();
-         
-         string fName = m->getCurrentList().getListName();
+      if (!selectList)
+         op= firstCommand();
+      else 
+         secondCommand();
+   } while (op);
+}
 
-         cmd->exec(*m, *u);
-         secondCommand(fName);
+int App::firstCommand()
+{
+   int op= View::getFirstOption();
+   switch (op)
+   {
+   case 1: cmd= new cCreateBothLists(); break;
+   case 2: cmd= new cDisplayLists(); break;
+   case 3: cmd= new cConcatenate(); break;
+   case 4: cmd= new cDeleteLists(); break;
+   case 5: {
+      if (m->fileExists()) {
+         cmd= new cSetCurrentList();
+         selectList= true;
+      }
+      else
+         cmd= new cIdle(); u->_Fail();
          break;
       }
-      case 0: exit(0);
-      default: system("cls"); u->_InvalidOp(); break;
-      }
-      cmd->exec(*m, *u);
-
-   } while (op != NULL);
+   default: u->_InvalidOp(); break;
+   }
+   runCommand();
+   return op;
 }
 
-void App::secondCommand(string fName)
+int App::secondCommand()
 {
-   int op;
-   string fileName= fName;
-   do {
-      op= View::getSecondOption(fName);
-      switch (op) 
-      {
-      case 1: cmd= new cPrepend();
-      case 2: cmd= new cAppend();
-      case 3: cmd= new cAddInPos();
-      case 4: cmd= new cDisable();
-      case 5: cmd= new cDisableAll();
-      case 6: cmd= new cDisplay();
-      case 7: cmd= new cDisplayDesc();
-      case 8: cmd= new cSort();
-      case 9: cmd= new cPurge();
-      case 10: system("cls"); op= NULL; break;
-      case 0: exit(0);
-      default: system("cls"); u->_InvalidOp();
-      }
-   } while (op != NULL);
+   int op= View::getSecondOption(m->getCurrentList().getListName());
+   switch (op) 
+   {
+   case 1: cmd= new cPrepend(); break;
+   case 2: cmd= new cAppend(); break;
+   case 3: cmd= new cAddInPos(); break;
+   case 4: cmd= new cDisable(); break;
+   case 5: cmd= new cDisableAll(); break;
+   case 6: cmd= new cDisplay(); break;
+   case 7: cmd= new cDisplayDesc(); break;
+   case 8: cmd= new cSort(); break;
+   case 9: cmd= new cPurge(); break;
+   case 10: system("cls"); cmd= new cIdle(); selectList= false; break;
+   default: u->_InvalidOp();
+   }
+   runCommand();
+
+   return op;
 }
 
 void App::runCommand()
 {
    cmd->exec(*m, *u);
-} 
+}

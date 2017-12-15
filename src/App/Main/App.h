@@ -21,8 +21,8 @@
 #include "cSort.h"
 #include "cCreateBothLists.h"
 #include "cDeleteLists.h"
-#include "cSetCurrentList.h"
 #include "cDisplayLists.h"
+#include "cSetCurrentList.h"
 
 class App
 {
@@ -30,11 +30,14 @@ private:
    Model* m;
    User* u;
    Cmd* cmd;
+   bool selectList;
+
 public:
    App() {
       m= new Model();
       u= new User();
       cmd= new cIdle();
+      selectList= false;
    }
    ~App() {
       delete m;
@@ -42,9 +45,8 @@ public:
       delete cmd;
    }
    void start();
-   void firstCommand();
-   void secondCommand(string fileName);
+   int firstCommand();
+   int secondCommand();
    void runCommand();
-   //void setLists(); (?)
 };
 #endif //INCLUDED_APP_H

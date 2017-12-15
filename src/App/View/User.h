@@ -2,6 +2,8 @@
 #ifndef INCLUDED_USER_H
 #define INCLUDED_USER_H
 
+#include "Model.h"
+
 #include <string>
 
 class User
@@ -9,8 +11,10 @@ class User
 public:
    int _GetValue();
    int _GetIndex();
-   int _GetListNumber();
+   int _GetCurrentValue();
+   int _GetListPos();
 
+   void _ClearScreen();
    void _Success();
    void _Fail();
    void _Final(bool);
@@ -18,6 +22,7 @@ public:
    void _InvalidOp();
    bool _Danger();
    void _Cancel();
+  
    void _Purge(int count);
    void _PrintList(std::string);
 };

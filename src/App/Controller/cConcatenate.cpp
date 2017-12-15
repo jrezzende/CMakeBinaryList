@@ -3,7 +3,7 @@
 void cConcatenate::exec(Model& m, User& u)
 {
    bool flag= true;
-   int index= u._GetIndex();
+   int index= u._GetListPos();
 
    if (index != 1 && index != 2) {
       flag= false;

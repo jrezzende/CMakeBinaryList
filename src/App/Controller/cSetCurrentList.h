@@ -9,4 +9,4 @@ class cSetCurrentList : public Cmd
    void exec(Model& m, User& u);
 };
 
-#endif // !INCLUDED_CSETCURRENTLIST_H
+#endif // INCLUDED_CSETCURRENTLIST_H

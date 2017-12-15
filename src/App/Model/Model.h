@@ -14,6 +14,7 @@ private:
    List* secondList;
    List* currentList;
    bool areInitialized= false;
+   std::string currentName;
 
 public:
    ~Model();
@@ -23,9 +24,8 @@ public:
    bool concatenateLists(int pos);
    void deleteLists();
    bool fileExists();
-   
-   void setCurrentList(int num);
-   
+   void setCurrentList(int listPos);
+
    List& getFirstList() { return *firstList; };
    List& getSecondList() { return *secondList;  };
    List& getCurrentList() { return *currentList; };

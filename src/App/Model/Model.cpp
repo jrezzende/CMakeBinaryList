@@ -79,13 +79,13 @@ bool Model::fileExists()
    return infile.good() && infile2.good();
 }
 
-void Model::setCurrentList(int num)
+void Model::setCurrentList(int listPos)
 {
-   if (num == 1) {
+   if (listPos == 1)
       currentList= firstList;
-      return;
-   }
 
-   currentList= secondList;
+   else if (listPos == 2) 
+      currentList= secondList;
+
+   return;
 }
-

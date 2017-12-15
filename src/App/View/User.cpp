@@ -31,24 +31,42 @@ int User::_GetIndex()
    return index;
 }
 
-int User::_GetListNumber()
+int User::_GetCurrentValue()
 {
    system("cls");
+
+   cout << "Choose the position of list you desire to work on.\n";
+   cout << "Position 1 - First List.\n";
+   cout << "Position 2 - Second List.\n";
+
+   int option;
+   cin >> option;
    
-   cout << "--------------------------- \n";
-   cout << "Insert the list number (must be 1 or 2).\n";
+   system("cls");
 
-   int num;
-   cin >> num;
+   return option;
+}
 
-   if (num != 1 && num != 2) {
-      User::_GetListNumber();
-   }
+int User::_GetListPos()
+{
+   system("cls");
 
-   return num;
+   cout << "Choose the list you desire to concatenate (attach to the end).\n";
+   cout << "1 - First List.\n";
+   cout << "2 - Second List.\n";
+
+   int pos;
+   cin >> pos;
+
+   return pos;
 }
 
 /////////////////////
+
+void User::_ClearScreen()
+{
+   system("cls");
+}
 
 void User::_Success()
 {

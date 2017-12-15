@@ -8,8 +8,7 @@
 namespace View 
 {
    int getFirstOption();
-   int getSecondOption(std::string fileName);
-   int getList();
+   int getSecondOption(std::string lName);
 }
 
 #endif // !INCLUDED_VIEW_H
