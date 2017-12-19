@@ -22,9 +22,10 @@ public:
    void _InvalidOp();
    bool _Danger();
    void _Cancel();
+   void _End();
   
    void _Purge();
    void _PrintList(std::string);
 };
 
-#endif // INCLUDED_VIEW_H
+#endif // INCLUDED_USER_H

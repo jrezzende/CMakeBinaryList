@@ -29,7 +29,7 @@ int App::firstCommand()
          cmd= new cIdle(); u->_Fail();
          break;
       }
-   default: u->_InvalidOp(); break;
+   default: u->_End(); exit(0); break;
    }
    runCommand();
    return op;

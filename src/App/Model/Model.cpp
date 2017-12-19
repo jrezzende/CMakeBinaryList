@@ -3,6 +3,15 @@
 
 #include <sstream>
 
+Model::Model()
+{
+   firstList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
+   firstList->setListName("firstList.bin");
+   secondList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
+   secondList->setListName("secondList.bin");
+   currentList= nullptr;
+}
+
 Model::~Model()
 {
    if (firstList) delete firstList;
@@ -73,10 +82,17 @@ void Model::deleteLists()
 
 bool Model::fileExists()
 {
+   bool flag= false;
+
    ifstream infile("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
    ifstream infile2("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
-  
-   return infile.good() && infile2.good();
+
+   flag= (infile.good()) && (infile2.good());
+
+   infile.close();
+   infile2.close();
+
+   return flag;
 }
 
 void Model::setCurrentList(int listPos)

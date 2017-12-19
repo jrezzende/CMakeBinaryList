@@ -18,7 +18,8 @@ private:
 
 public:
    ~Model();
-   Model() { firstList= secondList= currentList= nullptr;  }
+   Model();
+
    void createBothLists();
    std::string displayLists();
    bool concatenateLists(int pos);

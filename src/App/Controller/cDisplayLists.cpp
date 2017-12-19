@@ -11,4 +11,5 @@ void cDisplayLists::exec(Model& m, User& u)
       return;
    }
 
+   return;
 }

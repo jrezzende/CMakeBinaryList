@@ -9,10 +9,20 @@ void cConcatenate::exec(Model& m, User& u)
       flag= false;
    }
 
-   if (index == 1)
-      m.getCurrentList().concatenateList(m.getFirstList());
-   else
-      m.getCurrentList().concatenateList(m.getSecondList());
+   if (index == 1) {
+      if (m.getSecondList().getListSize() > 0) {
+         m.getSecondList().concatenateList(m.getFirstList());
+      }
+      else
+         flag= false;
+   }
+   else if (index == 2) {
+      if (m.getFirstList().getListSize() > 0) {
+          m.getFirstList().concatenateList(m.getSecondList());
+         }
+      else 
+         flag= false;
+      }
    
    flag ? u._Final(true) : u._Final(false);
 

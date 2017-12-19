@@ -2,6 +2,10 @@
 
 void cSort::exec(Model& m, User& u)
 {
-   m.getCurrentList().sortList();
+   if(m.getCurrentList().getListSize() > 0)
+      m.getCurrentList().sortList();
+
    u._Success();
+
+   return;
 }

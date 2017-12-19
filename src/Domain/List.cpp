@@ -32,14 +32,12 @@ bool List::openFile()
 {
    fs.open(fileName, ios::in | ios::out | ios::binary);
 
-   int holder= listSize;
-
    if ( fs.fail() ) {
       newFile();
       openFile();
    }
 
-   if ( isEmpty() ) 
+   if ( !fs.good() ) 
       serializeHeader();
 
    else {
@@ -49,9 +47,6 @@ bool List::openFile()
       fs.read((char*)&firstNode, sizeof(int));
       fs.seekg(LAST);
       fs.read((char*)&lastNode, sizeof(int));
-
-      listSize= holder;
-
 
       if (listSize > 1) {
          Node* temp= seekNode(firstNode);
@@ -241,7 +236,7 @@ void List::addInPos(int value, int pos)
 
    else {
       fs.seekg(0, ios::end);
-      new_node->index= fs.tellg();
+      new_node->index= (int)fs.tellg();
 
       next= seekNode(firstNode);
       for (int i= 0; i < pos; i++)

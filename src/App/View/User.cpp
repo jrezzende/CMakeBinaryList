@@ -102,6 +102,8 @@ bool User::_Danger()
 {
    system("cls");
 
+   bool flag= false;
+
    cout << "Attention! This operation has permanent effects that may not be reverted.\n Do you want to continue?\n";
    cout << "1 - Yes.\n";
    cout << "2 - No.\n";
@@ -110,16 +112,24 @@ bool User::_Danger()
    cin >> option;
 
    switch (option) {
-      case 1: return true;
-      case 2: return false;
-      default: _InvalidOp();
+   case 1: flag= true; break;
+   case 2: flag= false; break;
+   default: _InvalidOp();
    }
+
+   return flag;
 }
 
 void User::_Cancel()
 {
    system("cls");
    cout << "Operation canceled.\n";
+}
+
+void User::_End()
+{
+   system("cls");
+   cout << "Closing application...\n";
 }
 
 void User::_Purge()
