@@ -1,5 +1,22 @@
-file(GLOB View "*.h" "*.cpp")
+cmake_minimum_required(VERSION 3.9)
+project(view CXX)
 
-include_directories("${PROJECT_SOURCE_DIR}/src/App/Model")
+set(VIEW_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_library(view ${View})
+set (
+	VIEW_SRCS
+	User.cpp
+	View.cpp
+)
+
+set (
+	VIEW_HEADERS
+	User.h
+	View.h
+)
+
+add_library(view STATIC ${VIEW_SRCS} ${VIEW_HEADERS})
+
+target_include_directories(view PUBLIC ${VIEW_SRC_DIR})
+
+target_link_libraries(view model)

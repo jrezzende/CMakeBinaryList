@@ -1,5 +1,20 @@
-file(GLOB Model "*.h" "*.cpp")
+cmake_minimum_required(VERSION 3.9)
+project(model CXX)
 
-include_directories("${PROJECT_SOURCE_DIR}/src/Domain")
+set(MODEL_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_library(model ${Model})
+set (
+	MODEL_SRCS
+	Model.cpp
+)
+
+set (
+	MODEL_HEADERS
+	Model.h
+)
+
+add_library(model STATIC ${MODEL_SRCS} ${MODEL_HEADERS})
+
+target_include_directories(model PUBLIC ${MODEL_SRC_DIR})
+
+target_link_libraries(model list)
