@@ -13,7 +13,7 @@ public:
    int _GetIndex();
    int _GetCurrentValue();
    int _GetListPos();
-
+   //////////////////
    void _ClearScreen();
    void _Success();
    void _Fail();
@@ -23,7 +23,7 @@ public:
    bool _Danger();
    void _Cancel();
    void _End();
-  
+   //////////////////
    void _Purge();
    void _PrintList(std::string);
 };

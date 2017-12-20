@@ -39,11 +39,13 @@ public:
       cmd= new cIdle();
       selectList= false;
    }
+
    ~App() {
       delete m;
       delete u;
       delete cmd;
    }
+
    void start();
    int firstCommand();
    int secondCommand();

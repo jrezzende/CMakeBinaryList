@@ -9,4 +9,4 @@ class cAddInPos : public Cmd
    void exec(Model& m, User& u);
 };
 
-#endif // !1
+#endif // !INCLUDED_CADDINPOS_H

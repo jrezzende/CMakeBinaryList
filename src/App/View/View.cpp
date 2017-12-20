@@ -44,6 +44,7 @@ int View::getSecondOption(std::string lName)
    cout << "            " << "Option 9: Purge List" << endl;
    cout << "            " << "Option 10: Back to previous menu" << endl;
    cout << "/////////////////////////////////////////////////////////////////\n" << endl;
+   
    cin >> option;
 
    return option;

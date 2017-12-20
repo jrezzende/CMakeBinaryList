@@ -2,7 +2,6 @@
 #ifndef INCLUDED_MODEL_H
 #define INCLUDED_MODEL_H
 
-#include <Windows.h>
 #include <string>
 
 class List;

@@ -9,5 +9,4 @@ class cCreateBothLists : public Cmd
    void exec(Model& m, User& u);
 };
 
-
 #endif // !INCLUDED_CCREATEBOTHLISTS_H

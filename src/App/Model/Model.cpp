@@ -7,8 +7,10 @@ Model::Model()
 {
    firstList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/firstList.bin");
    firstList->setListName("firstList.bin");
+
    secondList= new List("C:/Users/joao.mathias/source/repos/CMakeBinFile/src/Domain/secondList.bin");
    secondList->setListName("secondList.bin");
+
    currentList= nullptr;
 }
 
